@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aqua.dao.DocumentRepository;
-import com.aqua.model.Document;
+import com.aqua.model.tnvbpm_envio_doc_original;
 
 @SpringBootApplication
 public class AplicativoUnoApplication implements CommandLineRunner{
@@ -33,20 +33,20 @@ public class AplicativoUnoApplication implements CommandLineRunner{
 		System.out.println("############## DATASOURCE = " + dataSource);
 		
 		System.out.println("\n1.findAll()...");
-        for (Document document : documentRepository.findAll()) {
+        for (tnvbpm_envio_doc_original document : documentRepository.findAll()) {
             System.out.println(document);
         }
 
-        System.out.println("\n2.findByEmail(String email)...");
-        for (Document document : documentRepository.findByidInstancia(1212L)) {
+        System.out.println("\n2.findByidInstancia(Long idinstancia)...");
+        for (tnvbpm_envio_doc_original document : documentRepository.findByidInstancia(1212L)) {
             System.out.println(document);
         }
         
      // For Stream, need @Transactional
-        /*System.out.println("\n4.findByEmailReturnStream(@Param(\"rut\") String rut)...");
-        try (Stream<Document> stream = documentRepository.findByRutReturnStream("25257268-6")) {
+        System.out.println("\n4.findByEmailReturnStream(@Param(\"rut\") String rut)...");
+        try (Stream<tnvbpm_envio_doc_original> stream = documentRepository.findByRutReturnStream("25257268-6")) {
             stream.forEach(x -> System.out.println(x));
-        }*/
+        }
 
         System.out.println("Done!");
 

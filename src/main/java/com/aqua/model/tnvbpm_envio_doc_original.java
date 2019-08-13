@@ -2,38 +2,42 @@ package com.aqua.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
-public class Document {
+public class tnvbpm_envio_doc_original {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DOCU_SEQ")
     @SequenceGenerator(sequenceName = "document_seq", allocationSize = 1, name = "DOCU_SEQ")
+	@Column( name="IDINSTANCIA" )
 	Long idInstancia;
 	
+	@Column( name="RUT" )
 	String rut;
-	
+	@Column( name="SUCURSAL")
 	String sucursal;
-	
+	@Column( name="USUARIO_SUCURSAL")
 	String usuarioSucursal;
-	
+	@Column( name="ESTADO_SUCURSAL")
 	Integer estadoSucursal;
-	
+	@Column( name="USUARIO_OPERACIONES")
 	String usuarioOperaciones;
-	
+	@Column( name="ESTADO_OPERACIONES")
 	Integer estadoOperaciones;
-	
+	@Column( name="FECHA_ENVIO")
 	Date fechaEnvio;
-	
+	@Column( name="FECHA_OPERACIONES")
 	Date fechaOperaciones;
-	
+	@Column( name="FECHA_SCAN")
 	Date fechaScan;
-	
+	@Column( name="COD_SUCURSAL")
 	Integer codSucursal;
 
 	public Long getIdInstancia() {
@@ -150,7 +154,7 @@ public class Document {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Document other = (Document) obj;
+		tnvbpm_envio_doc_original other = (tnvbpm_envio_doc_original) obj;
 		if (codSucursal == null) {
 			if (other.codSucursal != null)
 				return false;
@@ -211,7 +215,7 @@ public class Document {
 
 	@Override
 	public String toString() {
-		return "Document [idInstancia=" + idInstancia + ", rut=" + rut + ", sucursal=" + sucursal + ", usuarioSucursal="
+		return "tnvbpm_envio_doc_original [idInstancia=" + idInstancia + ", rut=" + rut + ", sucursal=" + sucursal + ", usuarioSucursal="
 				+ usuarioSucursal + ", estadoSucursal=" + estadoSucursal + ", usuarioOperaciones=" + usuarioOperaciones
 				+ ", estadoOperaciones=" + estadoOperaciones + ", fechaEnvio=" + fechaEnvio + ", fechaOperaciones="
 				+ fechaOperaciones + ", fechaScan=" + fechaScan + ", codSucursal=" + codSucursal + "]";
