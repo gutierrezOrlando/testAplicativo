@@ -1,32 +1,24 @@
 package com.aqua;
 
-import java.util.stream.Stream;
-
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.aqua.dao.DocumentRepository;
-import com.aqua.model.tnvbpm_envio_doc_original;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class AplicativoUnoApplication implements CommandLineRunner{
+@EnableJpaAuditing
+public class AplicativoUnoApplication{ //implements CommandLineRunner{
 	
-	 @Autowired
+	 /*@Autowired
 	 DataSource dataSource;
 	 
 	 @Autowired
-	 DocumentRepository documentRepository;
+	 DocumentRepository documentRepository;*/
 
-	public static void main(String[] args) throws Exception{
+	public static void main(String[] args){
 		SpringApplication.run(AplicativoUnoApplication.class, args);
 	}
 
-	@Transactional(readOnly = true)
+	/*@Transactional(readOnly = true)
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -52,6 +44,6 @@ public class AplicativoUnoApplication implements CommandLineRunner{
 
         wait(0);
 		
-	}
+	}*/
 
 }
